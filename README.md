@@ -10,7 +10,7 @@ The file should contain only the first coordination sphere and the Ln3+ ion shou
 
 You need to provide the charges of the atoms (Write them separated by spaces, such as for instance, 4 atoms: 1 0.5 0.2 1.5 1). I strongly suggest obtaining them through the Omega(lambda) parameters fit. One can do that through the JOYSpectra web platform. For the example tests, use just 1 for all charges to get the hang of the program
 
-This program does not need installing. Simply copy the .exe file to the folder of your .xyz file. The output will be printed in the same folder
+The python file needs the Numpy, Sympy, and Scipy packages to run. If you want to run a .exe file, that is available through: https://drive.google.com/file/d/18y--aPX1zMwE6XJMH16xuTbtMh5C9dsI/view?usp=sharing
 
 Supported ligands: N, O, F, P (Not for Ho3+), S, Cl, Se (not for Ho3+, Tm3+, and Lu3+), Br (not for Er3+), I
 Supported Lanthanides (III): Ce3+, Pr3+, Nd3+, Pm3+, Sm3+, Eu3+, Gd3+, Tb3+, Dy3+, Ho3+ (not for P, and Se), Er3+ (not for Br), Tm3+ (not for Se), and Yb3+
