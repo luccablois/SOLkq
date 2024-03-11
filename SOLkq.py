@@ -2,7 +2,6 @@ import numpy as np
 import scipy as sp
 from scipy import special as spe
 import sympy.physics.wigner as wgn
-import os
 
 '''
 Note: In scipy the theta and phi angles are swapped.
@@ -14,7 +13,7 @@ print('SOM Bkq parameters and LF Splitting evaluation initialized. Programmed by
 
 WOPT = input('Your output file will be printed in this same folder. Press any key to continue')
 
-#Centering the Geometry around the Eu3+ ion
+#Centering the Geometry around the Ln3+ ion
 #Input file: .xyz file with coordinates of Eu and the 1st coordination sphere. Distances in Angstroms, space separated
 
 
@@ -30,7 +29,7 @@ gg = [Input[i]-Input[0] for i in range(1,len(Input))]
 G = np.array(gg)
 print('\n Geometry centred around the Ln3+ ion: OK. Centred Geometry:')
 print(G)
-#G is the coordinate of the 1st coordination around the Eu3+ atoms (Cartesian)
+#G is the coordinate of the 1st coordination around the Ln3+ atom (Cartesian)
 
 #Getting the atomic numbers
 
@@ -319,7 +318,7 @@ print('Overlap Integrals Calculations: OK')
 
 #a0 is the Bohr radius in meters
 a0 = 5.2917721090380E-11
-#r^k radial integrals in units of a0^k (Ref: Edvardsson 1998 doi: )
+#r^k radial integrals in units of a0^k (Ref: A.J. Freeman, J.P. Desclaux, J. Magn. Magn. Mater., v12(1), 11-21 (1979) doi: 10.1016/0304-8853(79)90328-7)
 def rk(k):
     it = [[1.309,3.964,23.31],
           [1.327,4.537,32.65],
@@ -440,6 +439,7 @@ def Ck(k):
     else:
         return 0
 
+#Unitary Tensor Operator Matrix elements, from the tables of Nielson and Koster (1963), expressed in prime numbers factors.
 
 def Uk(S,L,J,k):
     def RSME(X,S,L,J,k):
