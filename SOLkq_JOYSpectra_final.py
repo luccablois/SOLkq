@@ -356,29 +356,25 @@ ovlp = [rho(ZLn,ZL[i],P[i]) for i in range(len(P))]
 a0 = 5.2917721090380E-11
 #r^k radial integrals in units of a0^k (Ref: Edvardsson 1998 doi: )
 def rk(k):
-    it = [[1.309,3.964,23.31],
-          [1.327,4.537,32.65],
-          [1.114,2.910,15.03],
-          [1.135,3.366,21.46],
-          [0.9743,2.260,10.55],
-          [0.9175,2.020,9.039],
-          [0.8671,1.820,7.831],
-          [0.8220,1.651,6.852],
-          [0.7814,1.505,6.048],
-          [0.7446,1.379,5.379],
-          [0.7111,1.270,4.816],
-          [0.6804,1.174,4.340],
-          [0.6522,1.089,3.932]]
-    for i in range(len(it)):
-        if ZLn == i+58:
-            if k == 2:
-                return it[i][0]
-            if k == 4:
-                return it[i][1]
-            if k == 6:
-                return it[i][2]
-            else:
-                return 0
+    start4 = [i for i in range(len(content)) if content[i].find('Input Lanthanide ion') != -1][0]
+    stop4 = [i for i in range(len(content)) if content[i].find('Ion dE (4f^n -> 4f^n-1 5d)') != -1][0]
+    rk = content[start4:stop4]
+    rk = [i.split() for i in rk]
+    prov2 = []
+    for i in rk:
+        for j in i:
+            try:
+                if isinstance(float(j), float) == True:
+                    prov2.append(float(j))
+            except:
+                pass
+    rk = prov2
+    if k == 2:
+        return rk[0]
+    if k == 4:
+        return rk[1]
+    if k == 6:
+        return rk[2]
 #Ligand distances in units of a0
 RL = [P[i][0]*1E-10/a0 for i in range(len(P))]
 #Spherical Harmonics for each ligand
