@@ -11,7 +11,8 @@ that is: theta: (0-2pi) and phi: (0-pi)
 #Begin#
 
 #Let's extract the relevant data from the JOYSpectra output and create a temporary xyz file (it will later be deleted)
-f = open('jobname.log',mode='r',encoding='utf-8')
+joyspectraoutput = input('Please type the name of your JOYSpectra output file with the .log extention\n')
+f = open(joyspectraoutput,mode='r',encoding='utf-8')
 content = f.readlines()
 f.close()
 
@@ -355,6 +356,7 @@ ovlp = [rho(ZLn,ZL[i],P[i]) for i in range(len(P))]
 #a0 is the Bohr radius in meters
 a0 = 5.2917721090380E-11
 #r^k radial integrals in units of a0^k (Ref: Edvardsson 1998 doi: )
+
 def rk(k):
     start4 = [i for i in range(len(content)) if content[i].find('Input Lanthanide ion') != -1][0]
     stop4 = [i for i in range(len(content)) if content[i].find('Ion dE (4f^n -> 4f^n-1 5d)') != -1][0]
@@ -375,6 +377,7 @@ def rk(k):
         return rk[1]
     if k == 6:
         return rk[2]
+
 #Ligand distances in units of a0
 RL = [P[i][0]*1E-10/a0 for i in range(len(P))]
 #Spherical Harmonics for each ligand
@@ -759,6 +762,7 @@ def PTerm():
     if ZLn%2 == 0:
         for i in range(len(JNb(S,L))):
             print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2')
+            print(f'U^2 = {Uk(S,L,i,2)}, U^4 = {Uk(S,L,i,4)}, U^6 = {Uk(S,L,i,6)}')
             for j in range(int(2*JNb(S,L)[i]+0.01+1)):
                 print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2  E{j+1}: ')
                 print(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
@@ -788,7 +792,7 @@ def WTerm():
                 otpt.write(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
             otpt.write('\n')
 
-otpt = open('Bkq_output.log','w')
+otpt = open(f'Bkq_{joyspectraoutput}.log','w')
 otpt.write('SOM Ligand Field Parameters')
 otpt.write('\nBy Lucca Blois')
 otpt.write('\nInstitute of Chemistry, São Paulo, Brazil')
