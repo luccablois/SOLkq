@@ -792,7 +792,7 @@ def WTerm():
                 otpt.write(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
             otpt.write('\n')
 
-otpt = open(f'Bkq_{joyspectraoutput}.log','w')
+otpt = open(f'Bkq_{joyspectraoutput}','w')
 otpt.write('SOM Ligand Field Parameters')
 otpt.write('\nBy Lucca Blois')
 otpt.write('\nInstitute of Chemistry, São Paulo, Brazil')
