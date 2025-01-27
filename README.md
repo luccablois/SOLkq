@@ -19,6 +19,10 @@ Output: Bkq values and Ligand Field splitting for selected (2S+1)L(J) states.
 
 Note1: Half-Integers J states need to be split into Krammers doublets
 Note2: Matrix elements calculated in the RUSSEL-SAUNDERS coupling scheme, with LS-Coupling matrix elements taken from the tables of Nielson and Koster.
+Note3: It is expected zero splitting for the Gd3+ ion due to the value of the matrix elements, which are all zero.
 
-If used, please reference this program. The paper should soon follow, future DOI will be added.
+The file _JOYSpectra is tailored to use the output file from the JOYSpectra web program.
+
+If used, please reference this program. Unusually Large Ligand Field Splitting in Anionic Europium(III) Complexes Induced by a Small Imidazolic Counterion Inorg. Chem. 2024, 63, 36, 16861–16871 10.1021/acs.inorgchem.4c02729
+
 PSA: I'm a Chemist and not a Programmer, this software is by no means optimized, but it calculates what it needs to.
