@@ -757,29 +757,14 @@ def JNb(S,L):
     if isinstance(S,int) == False:
         return [i/2 for i in range((int(np.abs(2*L-2*S))),int((2*L+2*S+1))) if i/2 != int(i/2)]
 
-def PTerm():
-    print(f'{int(2*S+0.001)+1}{Spec_Term.get(L)}:')
-    if ZLn%2 == 0:
-        for i in range(len(JNb(S,L))):
-            print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2')
-            print(f'U^2 = {Uk(S,L,i,2)}, U^4 = {Uk(S,L,i,4)}, U^6 = {Uk(S,L,i,6)}')
-            for j in range(int(2*JNb(S,L)[i]+0.01+1)):
-                print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2  E{j+1}: ')
-                print(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
-    if ZLn%2 != 0:
-        for i in range(len(JNb(S,L))):
-            print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(JNb(S,L)[i]+0.01)}')
-            for j in range(int(2*JNb(S,L)[i]+0.01+1)):
-                print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(JNb(S,L)[i]+0.01)}  E{j+1}: ')
-                print(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
-    print('Calculating Next Term Symbol, please wait...')
-
 def WTerm():
     otpt.write(f'{int(2*S+0.001)+1}{Spec_Term.get(L)}:')
     otpt.write('\n')
     if ZLn%2 == 0:
         for i in range(len(JNb(S,L))):
             otpt.write(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2')
+            otpt.write(f' U^2 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 2)}, U^4 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 4)}, U^6 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 6)}')
+            print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(2*JNb(S,L)[i]+0.01)}/2 DONE')
             for j in range(int(2*JNb(S,L)[i]+0.01+1)):
                 otpt.write(f'\nE{j+1}: ')
                 otpt.write(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
@@ -787,6 +772,8 @@ def WTerm():
     if ZLn%2 != 0:
         for i in range(len(JNb(S,L))):
             otpt.write(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(JNb(S,L)[i]+0.01)}')
+            otpt.write(f' U^2 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 2)}, U^4 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 4)}, U^6 = {Uk(S, L, int(JNb(S,L)[i]+0.01), 6)}')
+            print(f'\n{int(2*S+0.001)+1}{Spec_Term.get(L)}{int(JNb(S,L)[i]+0.01)} DONE')
             for j in range(int(2*JNb(S,L)[i]+0.01+1)):
                 otpt.write(f'\nE{j+1}: ')
                 otpt.write(str(np.sort(Secdet(S,L,JNb(S,L)[i]))[j]))
@@ -882,187 +869,157 @@ if ZLn == 58 or ZLn == 70:
     S = 1/2
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 59 or ZLn == 69:
     S = 1
     L = 1
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 1
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 1
     L = 5
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 0
     L = 2
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 0
     L = 4
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 0
     L = 6
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 60 or ZLn == 68:
     S = 3/2
     L = 6
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 4
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 0
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 1/2
     L = 5
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 1/2
     L = 4
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 61 or ZLn == 67:
     S = 2
     L = 6
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 2
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 2
     L = 0
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 62 or ZLn == 66:
     S = 5/2
     L = 5
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 5/2
     L = 1
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 9
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 6
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 4
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 3/2
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 63 or ZLn == 65:
     S = 3
     L = 3
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 2
     L = 8
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 2
     L = 4
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 2
     L = 2
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 if ZLn == 64:
     S = 7/2
     L = 0
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 5/2
     L = 6
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 5/2
     L = 2
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
     S = 5/2
     L = 1
     WTerm()
-    PTerm()
     otpt.write('\n----------------------------------')
     otpt.write('\n')
 otpt.write('\nGeometry in Cartesian Coordinates (x,y,z,)=')
