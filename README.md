@@ -10,7 +10,7 @@ The file should contain only the first coordination sphere and the Ln3+ ion shou
 
 You need to provide the charges of the atoms (Write them separated by spaces, such as for instance, 4 atoms: 1 0.5 0.2 1.5 1). I strongly suggest obtaining them through the Omega(lambda) parameters fit. One can do that through the JOYSpectra web platform. For the example tests, use just 1 for all charges to get the hang of the program
 
-The python file needs the Numpy, Sympy, and Scipy packages to run. If you want to run a .exe file, that is available through: https://drive.google.com/file/d/18y--aPX1zMwE6XJMH16xuTbtMh5C9dsI/view?usp=sharing
+The file _JOYSpectra is tailored to use the output file from the JOYSpectra web program, with no User input needed outside from the input file name.
 
 Supported ligands: N, O, F, P (Not for Ho3+), S, Cl, Se (not for Ho3+, Tm3+, and Lu3+), Br (not for Er3+), I
 Supported Lanthanides (III): Ce3+, Pr3+, Nd3+, Pm3+, Sm3+, Eu3+, Gd3+, Tb3+, Dy3+, Ho3+ (not for P, and Se), Er3+ (not for Br), Tm3+ (not for Se), and Yb3+
@@ -21,8 +21,7 @@ Note1: Half-Integers J states need to be split into Krammers doublets
 Note2: Matrix elements calculated in the RUSSEL-SAUNDERS coupling scheme, with LS-Coupling matrix elements taken from the tables of Nielson and Koster.
 Note3: It is expected zero splitting for the Gd3+ ion due to the value of the matrix elements, which are all zero.
 
-The file _JOYSpectra is tailored to use the output file from the JOYSpectra web program.
-
-If used, please reference this program. Unusually Large Ligand Field Splitting in Anionic Europium(III) Complexes Induced by a Small Imidazolic Counterion Inorg. Chem. 2024, 63, 36, 16861–16871 10.1021/acs.inorgchem.4c02729
+If used, please reference this program:
+Unusually Large Ligand Field Splitting in Anionic Europium(III) Complexes Induced by a Small Imidazolic Counterion Inorg. Chem. 2024, 63, 36, 16861–16871 10.1021/acs.inorgchem.4c02729
 
 PSA: I'm a Chemist and not a Programmer, this software is by no means optimized, but it calculates what it needs to.
